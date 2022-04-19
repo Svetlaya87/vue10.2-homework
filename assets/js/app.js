@@ -1,4 +1,4 @@
-const URL='../assets/json/api.json';
+const URL='../assets/api.json';
 
 const appConfig = {
     data(){
