@@ -1,8 +1,5 @@
 const URL='../assets/json/api.json';
 
-
-
-
 const appConfig = {
     data(){
         return {
