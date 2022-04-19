@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS </title>
+
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.css">
+
+        
+    
+
+<!--install Vue begin-->
+<!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
+-->
+    <script src="https://unpkg.com/vue@3"></script>
+<!--install Vue end-->
+
+<script defer src="./assets/js/app.js"></script>
+
+</head>
+<body>
+    
+    <div class="container my-5" id="app">
+            
+        <h1>Countries App </h1>
+
+        <input v-model='search' type="text" placeholder="Search" class='d-block my-3 ml-auto'>
+        <h1>{{search}}</h1>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">
+                    Name
+                    <button @click='TumblerSort(1)' class='btn btn-outline-secondary' value="sortName" >
+                      <i v-if="sortType == 1"  value='down' class="fas fa-angle-up"></i>
+                      <i v-else="sortType == 2"  value='up' class="fas fa-angle-down"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    Code
+                    <button @click='TumblerSort(3)' class='btn btn-outline-secondary' value="CodeSort">
+                      <i v-if="sortType == 3"  value='down' class="fas fa-angle-up"></i>
+                      <i v-else="sortType == 4"  value='up' class="fas fa-angle-down"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    Capital
+                    <button @click='TumblerSort(5)' class='btn btn-outline-secondary' value="CapitalSort">
+                      <i v-if="sortType == 5"  value='down' class="fas fa-angle-up"></i>
+                      <i v-else="sortType == 6"  value='up' class="fas fa-angle-down"></i>
+                    </button>  
+                </th>
+                <th scope="col">
+                    Flag
+                </th>
+                <th scope="col">
+                    Borders
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr v-for="item in Sort">
+                <td >{{item.name.common}}</td>
+                <td > {{item.cca2}} ({{item.cca3}}) </td>
+                <td>{{item.capital}}</td>
+                <td><img style='width:100px' class='shadow border' :src='item.flag'> </td>
+
+                <td  >
+              
+                    <img v-for='flag in item.borders' style='width:100px' class='shadow border' v-bind:src='flag'>
+             
+                    
+             
+                </td>
+              </tr>
+            
+            </tbody>
+          </table>
+
+    </div>
+
+    
+</body>
+</html>
